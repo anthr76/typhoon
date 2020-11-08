@@ -4,6 +4,28 @@ Notable changes between versions.
 
 ## Latest
 
+* Update Cilium from v1.8.4 to [v1.9.0-rc3](https://github.com/cilium/cilium/releases/tag/v1.9.0-rc3)
+* Update Calico from v1.16.3 to [v1.16.4](https://github.com/projectcalico/calico/releases/tag/v3.16.4)
+* Remove `asset_dir` variable (defaulted off in [v1.17.0](https://github.com/poseidon/typhoon/pull/595), deprecated in [v1.18.0](https://github.com/poseidon/typhoon/pull/678))
+
+### Fedora CoreOS
+
+* Fix local node delete oneshot on node shutdown ([#856](https://github.com/poseidon/typhoon/pull/855))
+
+### Flatcar Linux
+
+* Rename `container-linux` modules to `flatcar-linux` ([#858](https://github.com/poseidon/typhoon/issues/858)) (**action required**)
+* Change `etcd-member.service` container runnner from rkt to docker ([#867](https://github.com/poseidon/typhoon/pull/867))
+* Change `kubelet.service` container runner from rkt to docker ([#855](https://github.com/poseidon/typhoon/pull/855))
+* Change `delete-node.service` to use docker and an inline ExecStart ([#855](https://github.com/poseidon/typhoon/pull/855))
+* Fix local node delete oneshot on node shutdown ([#855](https://github.com/poseidon/typhoon/pull/855))
+* Remove CoreOS Container Linux Matchbox profiles ([#859](https://github.com/poseidon/typhoon/pull/858))
+
+### Addons
+
+* Update kube-state-metrics from v2.0.0-alpha.1 to [v2.0.0-alpha.2](https://github.com/kubernetes/kube-state-metrics/releases/tag/v2.0.0-alpha.2)
+* Update Grafana from v7.2.1 to [v7.3.0](https://github.com/grafana/grafana/releases/tag/v7.3.0)
+
 ## v1.19.3
 
 * Update Cilium from v1.8.3 to [v1.8.4](https://github.com/cilium/cilium/releases/tag/v1.8.4)
