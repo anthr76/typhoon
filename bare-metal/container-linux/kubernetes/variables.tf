@@ -10,16 +10,6 @@ variable "matchbox_http_endpoint" {
   description = "Matchbox HTTP read-only endpoint (e.g. http://matchbox.example.com:8080)"
 }
 
-variable "os_channel" {
-  type        = string
-  description = "Channel for a Flatcar Linux (flatcar-stable, flatcar-beta, flatcar-alpha, flatcar-edge)"
-}
-
-variable "os_version" {
-  type        = string
-  description = "Version for a Container Linux derivative to PXE and install (e.g. 2079.5.1)"
-}
-
 # machines
 
 variable "controllers" {
@@ -27,6 +17,8 @@ variable "controllers" {
     name   = string
     mac    = string
     domain = string
+    os_channel = string
+    os_version = string
   }))
   description = <<EOD
 List of controller machine details (unique name, identifying MAC address, FQDN)
@@ -39,6 +31,8 @@ variable "workers" {
     name   = string
     mac    = string
     domain = string
+    os_channel = string
+    os_version = string
   }))
   description = <<EOD
 List of worker machine details (unique name, identifying MAC address, FQDN)
@@ -122,14 +116,14 @@ variable "download_protocol" {
 
 variable "cached_install" {
   type        = bool
-  description = "Whether Container Linux should PXE boot and install from matchbox /assets cache. Note that the admin must have downloaded the os_version into matchbox assets."
+  description = "Whether Flatcar Linux should PXE boot and install from matchbox /assets cache. Note that the admin must have downloaded the os_version into matchbox assets."
   default     = false
 }
 
 variable "install_disk" {
   type        = string
   default     = "/dev/sda"
-  description = "Disk device to which the install profiles should install Container Linux (e.g. /dev/sda)"
+  description = "Disk device to which the install profiles should install Flatcar Linux (e.g. /dev/sda)"
 }
 
 variable "kernel_args" {
@@ -152,15 +146,8 @@ variable "enable_aggregation" {
 
 # unofficial, undocumented, unsupported
 
-variable "asset_dir" {
-  type        = string
-  description = "Absolute path to a directory where generated assets should be placed (contains secrets)"
-  default     = ""
-}
-
 variable "cluster_domain_suffix" {
   type        = string
-  description = "Queries for domains with the suffix will be answered by coredns. Default is cluster.local (e.g. foo.default.svc.cluster.local) "
+  description = "Queries for domains with the suffix will be answered by coredns. Default is cluster.local (e.g. fo.default.svc.cluster.local) "
   default     = "cluster.local"
 }
-
